@@ -1,0 +1,3 @@
+CREATE DATABASE drone;
+CREATE USER droneuser WITH PASSWORD 'drone';
+GRANT ALL PRIVILEGES ON DATABASE drone TO droneuser;
