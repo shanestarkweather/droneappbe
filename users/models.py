@@ -7,8 +7,8 @@ class User(AbstractUser):
                               max_length=255, unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    faa_license = models.CharField(max_length=100)
-    REQUIRED_FIELDS = ['username']
+    faa_license = models.CharField(max_length=100, default='')
+    REQUIRED_FIELDS = ['username', 'first_name', 'last_name', 'faa_license']
     USERNAME_FIELD = 'email'
 
     def get_username(self):

@@ -8,6 +8,8 @@ class PreFlightViewSet(viewsets.ModelViewSet):
     queryset = PreFlight.objects.all()
     serializer_class = PreFlightSerializer
 
+    def perform_create(self, serializer):
+        serializer.save(pilot=self.request.user)
 
 # class PreFlightList(generics.ListCreateAPIView):
 #     queryset = PreFlight.objects.all()

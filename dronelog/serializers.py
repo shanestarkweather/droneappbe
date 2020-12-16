@@ -3,6 +3,11 @@ from .models import PreFlight, Flight
 
 
 class PreFlightSerializer(serializers.ModelSerializer):
+    pilot = serializers.ReadOnlyField(
+        source='pilot.id',
+        read_only=True
+    )
+
     class Meta:
         model = PreFlight
         fields = ('id', 'pilot', 'date', 'time', 'location',
@@ -12,5 +17,4 @@ class PreFlightSerializer(serializers.ModelSerializer):
 class FlightSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flight
-        fields = ('preflight_id', 'pilot', 'preflight_date', 'preflight_time', 'preflight_location',
-                  'preflight_drone_reg', 'preflight_weather', 'duration', 'incidents')
+        fields = ('preflight', 'id', 'duration', 'incidents')
