@@ -11,26 +11,7 @@ class PreFlightViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(pilot=self.request.user)
 
-# class PreFlightList(generics.ListCreateAPIView):
-#     queryset = PreFlight.objects.all()
-#     serializer_class = PreFlightSerializer
-
-
-# class PreFlightDetail(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = PreFlight.objects.all()
-#     serializer_class = PreFlightSerializer
-
 
 class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
-
-
-# class FlightList(generics.ListCreateAPIView):
-#     queryset = Flight.objects.all()
-#     serializer_class = FlightSerializer
-
-
-# class FlightDetail(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Flight.objects.all()
-#     serializer_class = FlightSerializer
